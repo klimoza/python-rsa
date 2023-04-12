@@ -13,7 +13,8 @@ def verify_message(message, signature, public_key):
   return rsa.verify(message, signature, public_key)
 
 def create_parser():
-  parser = OptionParser(description='RSA command line tool')
+  usage = "usage: %prog {gen-keys,sign,verify} <args> [options]"
+  parser = OptionParser(description='RSA command line tool', usage=usage)
   parser.add_option('-b', '--bits', dest='bits', default=1024, type='int',
                     help='number of bits for key generation [default=1024]')
   return parser
